@@ -28,6 +28,10 @@ class Catproduit extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function produits()
+    {
+        return $this->hasMany(Produit::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

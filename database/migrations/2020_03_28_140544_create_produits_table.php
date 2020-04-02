@@ -15,8 +15,6 @@ class CreateProduitsTable extends Migration
         Schema::create('produits', function (Blueprint $table) {
             // ["codeProduit", "int(11)", "NO", "PRI", null, "auto_increment"]
             $table->integer('id')->autoIncrement();
-
-            $table->integer('codeProduit');
             // ["nom", "varchar(255)", "NO", "", null, ""]
             $table->string('nom', 255);
             // ["prix", "float(255,0)", "NO", "", null, ""]
@@ -32,7 +30,8 @@ class CreateProduitsTable extends Migration
             // ["isPromo", "int(11)", "YES", "", "0", ""]
             $table->integer('isPromo')->default('0');
             // ["imgPath", "text", "NO", "", null, ""]
-            $table->text('imgPath');
+            $table->text('imgPath')->nullable();
+            $table->foreign('catID')->references('id')->on('catproduits');
             $table->timestamps();
         });
     }

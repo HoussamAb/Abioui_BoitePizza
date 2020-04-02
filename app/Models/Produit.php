@@ -29,6 +29,11 @@ class Produit extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function category()
+    {
+        return $this->belongsTo(Catproduit::class);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
