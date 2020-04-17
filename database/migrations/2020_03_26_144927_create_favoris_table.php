@@ -12,14 +12,14 @@ class CreateFavorisTable extends Migration
      */
     public function up()
     {
-        Schema::create('favoriss', function (Blueprint $table) {
+        Schema::create('favoris', function (Blueprint $table) {
             // ["id", "int(11)", "NO", "PRI", null, "auto_increment"]
 
         $table->increments('id');
         // ["codeProduit", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('codeProduit');
+        $table->integer('codeProduit')->references('id')->on('produits')->onDelete('cascade');;
         // ["numClient", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('numClient');
+        $table->integer('numClient')->references('id')->on('client')->onDelete('cascade');
         $table->timestamps();
         });
     }

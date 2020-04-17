@@ -15,8 +15,6 @@ class CreateImageclientTable extends Migration
         Schema::create('imageclients', function (Blueprint $table) {
             // ["imgID", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('imgID');
         // ["imgName", "varchar(255)", "NO", "", null, ""]
         $table->string('imgName', 255);
         // ["imgPath", "text", "NO", "", null, ""]

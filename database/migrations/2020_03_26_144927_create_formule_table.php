@@ -15,8 +15,6 @@ class CreateFormuleTable extends Migration
         Schema::create('formules', function (Blueprint $table) {
             // ["codeFormule", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('codeFormule');
         // ["nomFormule", "varchar(255)", "NO", "", null, ""]
         $table->string('nomFormule', 255);
         // ["prix", "decimal(10,2)", "NO", "", null, ""]

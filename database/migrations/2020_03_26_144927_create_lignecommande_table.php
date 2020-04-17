@@ -13,14 +13,12 @@ class CreateLignecommandeTable extends Migration
     public function up()
     {
         Schema::create('lignecommandes', function (Blueprint $table) {
-            // ["ligneID", "int(11)", "NO", "PRI", null, "auto_increment"]
-            $table->integer('id')->autoIncrement();
-
-            $table->integer('ligneID');
+        // ["ligneID", "int(11)", "NO", "PRI", null, "auto_increment"]
+        $table->integer('id')->autoIncrement();
         // ["numCommande", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('numCommande');
+        $table->integer('numCommande')->references('id')->on('cmds')->onDelete('cascade');;
         // ["codeProduit", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('codeProduit');
+        $table->integer('codeProduit')->references('id')->on('produits')->onDelete('cascade');;
         // ["prix", "double", "NO", "", null, ""]
         $table->double('prix');
         // ["nb", "int(11)", "NO", "", null, ""]

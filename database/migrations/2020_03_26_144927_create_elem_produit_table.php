@@ -15,8 +15,6 @@ class CreateElemProduitTable extends Migration
         Schema::create('elem_produits', function (Blueprint $table) {
             // ["idElemProduit", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('idElemProduit');
         // ["numElem", "int(11)", "NO", "MUL", null, ""]
         $table->integer('numElem');
         // ["codeProduit", "int(11)", "NO", "MUL", null, ""]

@@ -31,6 +31,13 @@ class ProduitCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
         // $this->crud->setFromDb();
         $this->crud->addColumn([
+            'name' => 'imgPath',
+            'label' => 'Image',
+            'type' => 'image',
+            'height' => '80px',
+            'width' => '80px',
+        ]);
+        $this->crud->addColumn([
             'name' => 'nom',
             'label' => 'Nom produit ',
             'type' => 'text'
@@ -38,7 +45,7 @@ class ProduitCrudController extends CrudController
         $this->crud->addColumn([
             'label' => "Category",
             'type' => 'text',
-            'name' => 'catID', // the db column for the foreign key
+            'name' => 'category_id', // the db column for the foreign key
             'entity' => 'category', // the method that defines the relationship in your Model
             'attribute' => 'nomCat', // foreign key attribute that is shown to user
             'model' => "App\Models\Catproduit",
@@ -49,26 +56,14 @@ class ProduitCrudController extends CrudController
             'suffix' => " DH",
             'type' => 'number'
         ]);
-        $this->crud->addColumn([
-            'name' => 'isPromo',
-            'label' => 'En Promotion  ',
-            'type' => 'radio',
-            'options'     => [
-                    0 => "Non",
-                    1 => "Oui"
-                      ]
-        ]);
+
         $this->crud->addColumn([
             'name' => 'remise',
             'label' => 'Remise',
             'suffix' => " DH",
             'type' => 'number'
         ]);
-        $this->crud->addColumn([
-            'name' => 'imgPath',
-            'label' => 'Image',
-            'type' => 'image',
-        ]);
+
     }
 
     protected function setupCreateOperation()
@@ -86,7 +81,7 @@ class ProduitCrudController extends CrudController
 
             'label' => "Category",
             'type' => 'select',
-            'name' => 'catID', // the db column for the foreign key
+            'name' => 'category_id', // the db column for the foreign key
             'entity' => 'category', // the method that defines the relationship in your Model
             'attribute' => 'nomCat', // foreign key attribute that is shown to user
             'model' => "App\Models\Catproduit",
@@ -129,12 +124,9 @@ class ProduitCrudController extends CrudController
         $this->crud->addField([
             'name' => 'imgPath',
             'label' => 'Image',
-            //'type' => 'browse'
-            'filename' => "image_filename", // set to null if not needed
-            'type' => 'base64_image',
+            'type' => 'browse',
             'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
             'crop' => true, // set to true to allow cropping, false to disable
-            'src' => NULL, // null to read straight from DB, otherwise set to model accessor function
         ]);
     }
 

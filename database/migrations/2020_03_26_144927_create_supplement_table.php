@@ -13,10 +13,8 @@ class CreateSupplementTable extends Migration
     public function up()
     {
         Schema::create('supplements', function (Blueprint $table) {
-            // ["numingred", "int(11)", "NO", "PRI", null, "auto_increment"]
-
+        // ["numingred", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-        $table->integer('numingred');
         // ["prix", "double", "NO", "", null, ""]
         $table->double('prix');
         // ["nomingred", "varchar(100)", "NO", "", null, ""]

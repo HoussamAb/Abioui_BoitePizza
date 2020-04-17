@@ -15,12 +15,10 @@ class CreateLignecmdformTable extends Migration
         Schema::create('lignecmdforms', function (Blueprint $table) {
             // ["ligneID", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('ligneID');
         // ["numCommande", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('numCommande');
+        $table->integer('numCommande')->references('id')->on('cmds')->onDelete('cascade');
         // ["codeFormule", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('codeFormule');
+        $table->integer('codeFormule')->references('id')->on('formules')->onDelete('cascade');;
         $table->timestamps();
         });
     }

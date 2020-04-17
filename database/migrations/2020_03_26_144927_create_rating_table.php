@@ -15,10 +15,8 @@ class CreateRatingTable extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             // ["idRat", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('idRat');
         // ["numClient", "int(11)", "NO", "MUL", null, ""]
-        $table->integer('numClient');
+        $table->integer('numClient')->references('id')->on('client')->onDelete('cascade');
         // ["rat", "double", "NO", "", null, ""]
         $table->double('rat');
         $table->timestamps();

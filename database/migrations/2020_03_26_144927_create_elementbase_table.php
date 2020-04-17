@@ -15,8 +15,6 @@ class CreateElementbaseTable extends Migration
         Schema::create('elementbases', function (Blueprint $table) {
             // ["numElem", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('numElem');
         // ["nomElem", "varchar(100)", "NO", "", null, ""]
         $table->string('nomElem', 100);
         $table->timestamps();

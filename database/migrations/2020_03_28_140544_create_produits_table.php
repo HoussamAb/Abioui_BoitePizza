@@ -20,7 +20,6 @@ class CreateProduitsTable extends Migration
             // ["prix", "float(255,0)", "NO", "", null, ""]
             $table->float('prix', 255, 0);
             // ["catID", "int(11)", "NO", "MUL", null, ""]
-            $table->integer('catID');
             // ["remise", "int(11)", "NO", "", "0", ""]
             $table->integer('remise')->default('0');
             // ["date_debut", "datetime", "YES", "", null, ""]
@@ -31,7 +30,8 @@ class CreateProduitsTable extends Migration
             $table->integer('isPromo')->default('0');
             // ["imgPath", "text", "NO", "", null, ""]
             $table->text('imgPath')->nullable();
-            $table->foreign('catID')->references('id')->on('catproduits');
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('catproduits')->onDelete('cascade');
             $table->timestamps();
         });
     }

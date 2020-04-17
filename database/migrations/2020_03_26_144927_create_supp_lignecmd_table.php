@@ -13,10 +13,8 @@ class CreateSuppLignecmdTable extends Migration
     public function up()
     {
         Schema::create('supp_lignecmds', function (Blueprint $table) {
-            // ["idSuppLigne", "int(11)", "NO", "PRI", null, "auto_increment"]
+        // ["idSuppLigne", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-
-        $table->integer('idSuppLigne');
         // ["numingred", "int(11)", "NO", "MUL", null, ""]
         $table->integer('numingred');
         // ["ligneID", "int(11)", "NO", "MUL", null, ""]
