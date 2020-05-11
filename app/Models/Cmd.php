@@ -32,7 +32,9 @@ class Cmd extends Model
     {
         return $this->belongsTo(Client::class);
     }
-
+    public function setDatetimeAttribute($value) {
+        $this->attributes['datetime'] = \Date::parse($value);
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

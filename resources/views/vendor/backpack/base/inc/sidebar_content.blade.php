@@ -13,12 +13,14 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cmd') }}'><i class='nav-icon fa fa-dropbox'></i> Commandes </a></li>
 {{--
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cmdformligneproduit') }}'><i class='nav-icon fa fa-question'></i> Cmdformligneproduits</a></li>
-
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('commentaire') }}'><i class='nav-icon fa fa-question'></i> Commentaires </a></li>
+--}}
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('commentaire') }}'><i class='nav-icon fa fa-comments'></i> Commentaires </a></li>
+{{--
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('elem_lignecmd') }}'><i class='nav-icon fa fa-question'></i> Element ligne de commandes </a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('elem_produit') }}'><i class='nav-icon fa fa-question'></i> Element de produits</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('elementbase') }}'><i class='nav-icon fa fa-question'></i> Element de bases</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('formule') }}'><i class='nav-icon fa fa-question'></i> Formules</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('elementbase') }}'><i class='nav-icon fa fa-question'></i> Element de bases</a></li>--}}
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('formule') }}'><i class='nav-icon fa fa-list-alt'></i> Formules</a></li>
+{{--
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('imageclient') }}'><i class='nav-icon fa fa-question'></i> Images de clients</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lignecmdform') }}'><i class='nav-icon fa fa-question'></i> Lignecmdforms</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lignecommande') }}'><i class='nav-icon fa fa-question'></i> Ligne de commandes</a></li>

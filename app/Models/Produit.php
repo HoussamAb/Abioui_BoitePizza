@@ -33,7 +33,10 @@ class Produit extends Model
     {
         return $this->belongsTo(Catproduit::class);
     }
-
+    public function commentaire()
+    {
+        return $this->hasMany(Commentaire::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

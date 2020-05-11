@@ -302,7 +302,7 @@ return [
         // "fr_CI" => "French (Côte d’Ivoire)",
         // "fr_DJ" => "French (Djibouti)",
         // "fr_GQ" => "French (Equatorial Guinea)",
-        // "fr_FR" => "French (France)",
+         "fr_FR" => "French (France)",
         // "fr_GA" => "French (Gabon)",
         // "fr_GP" => "French (Guadeloupe)",
         // "fr_GN" => "French (Guinea)",

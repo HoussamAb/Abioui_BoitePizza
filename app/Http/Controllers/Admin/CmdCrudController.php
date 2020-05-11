@@ -29,7 +29,52 @@ class CmdCrudController extends CrudController
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
+
+        $this->crud->addColumn([
+            'label' => "Client",
+            'name' => 'client_id', // the db column for the foreign key
+            'entity' => 'client', // the method that defines the relationship in your Model
+            'attribute' => 'nom', // foreign key attribute that is shown to user
+            'type' => "select",
+            // optional
+            'model' => "App\Models\Client", // foreign key model
+            // 'options'   => (function ($query) {return $query->orderBy('nom', 'ASC')->get();}),
+            // // force the related options to be a custom query, instead of all(); you can use this to filter the results show in the select
+        ]);
+        $this->crud->addColumn([
+            'name' => 'date',
+            'label' => 'Date',
+            'type' => 'text',
+
+        ]);
+        $this->crud->addColumn([
+            'name' => 'adressLiv',
+            'label' => 'Adresse de livraison ',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name'        => 'type', // the name of the db column
+            'label'       => 'type', // the input label
+            'type'        => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                'domicile' => "domicile",
+                'expresse' => "expresse",
+                'none' => "sure place",
+            ],
+
+        ]);
+        $this->crud->addColumn([
+            'name' => 'realise',
+            'label' => 'Prête ?',
+            'type' => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                '1' => "oui",
+                '0' => "non",
+                ],
+        ]);
     }
 
     protected function setupCreateOperation()
@@ -54,17 +99,12 @@ class CmdCrudController extends CrudController
         $this->crud->addField([
             'name' => 'date',
             'label' => 'Date',
-            'type' => 'date',
-            'date_picker_options' => [
-                'todayBtn' => 'linked',
-                'format' => 'dd-mm-yyyy',
-                'language' => 'fr'
-            ],
+            'type' => 'datetime',
         ]);
         $this->crud->addField([
             'name' => 'adressLiv',
             'label' => 'Adresse de livraison ',
-            'type' => 'text'
+            'type' => 'textarea'
         ]);
         $this->crud->addField([
             'name'        => 'type', // the name of the db column
@@ -75,7 +115,9 @@ class CmdCrudController extends CrudController
                 'domicile' => "domicile",
                 'expresse' => "expresse",
                 'none' => "sure place",
-            ]
+            ],
+            'inline'      => true,
+
         ]);
         $this->crud->addField([
             'name' => 'realise',
@@ -87,5 +129,52 @@ class CmdCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation(){
+        $this->crud->addColumn([
+            'label' => "Client",
+            'name' => 'client_id', // the db column for the foreign key
+            'entity' => 'client', // the method that defines the relationship in your Model
+            'attribute' => 'nom', // foreign key attribute that is shown to user
+            'type' => "select",
+            // optional
+            'model' => "App\Models\Client", // foreign key model
+            // 'options'   => (function ($query) {return $query->orderBy('nom', 'ASC')->get();}),
+            // // force the related options to be a custom query, instead of all(); you can use this to filter the results show in the select
+        ]);
+        $this->crud->addColumn([
+            'name' => 'date',
+            'label' => 'Date',
+            'type' => 'text',
+
+        ]);
+        $this->crud->addColumn([
+            'name' => 'adressLiv',
+            'label' => 'Adresse de livraison ',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name'        => 'type', // the name of the db column
+            'label'       => 'type', // the input label
+            'type'        => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                'domicile' => "domicile",
+                'expresse' => "expresse",
+                'none' => "sure place",
+            ],
+
+        ]);
+        $this->crud->addColumn([
+            'name' => 'realise',
+            'label' => 'Prête ?',
+            'type' => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                '1' => "oui",
+                '0' => "non",
+            ],
+        ]);
     }
 }

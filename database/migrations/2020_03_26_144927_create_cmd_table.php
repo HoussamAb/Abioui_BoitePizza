@@ -13,19 +13,12 @@ class CreateCmdTable extends Migration
     public function up()
     {
         Schema::create('cmds', function (Blueprint $table) {
-            // ["numCommande", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-        // ["numClient", "int(11)", "NO", "MUL", null, ""]
         $table->integer('client_id')->references('id')->on('client')->onDelete('cascade');
-        // ["date", "timestamp", "NO", "", "CURRENT_TIMESTAMP", ""]
         $table->timestamp('date')->default(\DB::raw('CURRENT_TIMESTAMP'));
-        // ["adressLiv", "varchar(255)", "NO", "", null, ""]
         $table->string('adressLiv', 255);
-        // ["type", "varchar(10)", "NO", "", null, ""]
         $table->string('type', 10);
-        // ["realise", "int(11)", "NO", "", null, ""]
         $table->integer('realise');
-        // ["secteur", "varchar(255)", "NO", "", null, ""]
         $table->string('secteur', 255);
         $table->timestamps();
         });

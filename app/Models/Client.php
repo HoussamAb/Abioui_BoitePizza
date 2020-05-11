@@ -32,6 +32,10 @@ class Client extends Model
     {
         return $this->hasMany(Cmd::class);
     }
+    public function commentaire()
+    {
+        return $this->hasMany(Commentaire::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

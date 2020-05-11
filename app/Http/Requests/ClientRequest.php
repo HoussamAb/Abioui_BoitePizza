@@ -32,7 +32,6 @@ class ClientRequest extends FormRequest
             'login' => 'required',
             'motdepasse' => 'required|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/',
             'email' => 'required|email'
-
         ];
     }
 
@@ -56,7 +55,8 @@ class ClientRequest extends FormRequest
     public function messages()
     {
         return [
-            //
-        ];
+            'required' => ':attribute est obligatoire',
+            'email.email' => 'l\'adresse email est invalide',
+            ];
     }
 }

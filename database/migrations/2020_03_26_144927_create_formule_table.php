@@ -13,15 +13,10 @@ class CreateFormuleTable extends Migration
     public function up()
     {
         Schema::create('formules', function (Blueprint $table) {
-            // ["codeFormule", "int(11)", "NO", "PRI", null, "auto_increment"]
         $table->integer('id')->autoIncrement();
-        // ["nomFormule", "varchar(255)", "NO", "", null, ""]
         $table->string('nomFormule', 255);
-        // ["prix", "decimal(10,2)", "NO", "", null, ""]
         $table->decimal('prix', 10, 2);
-        // ["description", "text", "NO", "", null, ""]
         $table->text('description');
-        // ["imgPath", "text", "NO", "", null, ""]
         $table->text('imgPath');
         $table->timestamps();
         });

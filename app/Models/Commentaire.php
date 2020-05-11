@@ -28,7 +28,17 @@ class Commentaire extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+    public function produit()
+    {
+        return $this->belongsTo(Produit::class);
+    }
+    public function setDatetimeAttribute($value) {
+        $this->attributes['datetime'] = \Date::parse($value);
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

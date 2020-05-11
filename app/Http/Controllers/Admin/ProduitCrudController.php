@@ -25,7 +25,51 @@ class ProduitCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/produit');
         $this->crud->setEntityNameStrings('produit', 'produits');
     }
+    protected function setupShowOperation(){
+        $this->crud->addColumn([
+            'name' => 'imgPath',
+            'label' => 'Image',
+            'type' => 'image',
+            'height' => '80px',
+            'width' => '80px',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'nom',
+            'label' => 'Nom produit ',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'label' => "Category",
+            'type' => "select",
+            'name' => 'category_id', // the column that contains the ID of that connected entity;
+            'entity' => 'category', // the method that defines the relationship in your Model
+            'attribute' => "nomCat", // foreign key attribute that is shown to user
+            'model' => "App\Models\Category", // foreign key model
+        ]);
+        $this->crud->addColumn([
+            'name' => 'prix',
+            'label' => 'Prix  ',
+            'suffix' => " DH",
+            'type' => 'number'
+        ]);
 
+        $this->crud->addColumn([
+            'name' => 'remise',
+            'label' => 'Remise',
+            'suffix' => " DH",
+            'type' => 'number'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'isPromo',
+            'label' => 'En Promotion  ',
+            'type' => 'radio',
+            'options'=>[
+                '0' => "non",
+                '1' => "oui"
+            ]
+        ]);
+
+    }
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
@@ -44,11 +88,11 @@ class ProduitCrudController extends CrudController
         ]);
         $this->crud->addColumn([
             'label' => "Category",
-            'type' => 'text',
-            'name' => 'category_id', // the db column for the foreign key
+            'type' => "select",
+            'name' => 'category_id', // the column that contains the ID of that connected entity;
             'entity' => 'category', // the method that defines the relationship in your Model
-            'attribute' => 'nomCat', // foreign key attribute that is shown to user
-            'model' => "App\Models\Catproduit",
+            'attribute' => "nomCat", // foreign key attribute that is shown to user
+            'model' => "App\Models\Category", // foreign key model
         ]);
         $this->crud->addColumn([
             'name' => 'prix',
@@ -62,6 +106,15 @@ class ProduitCrudController extends CrudController
             'label' => 'Remise',
             'suffix' => " DH",
             'type' => 'number'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'isPromo',
+            'label' => 'En Promotion  ',
+            'type' => 'radio',
+            'options'=>[
+                '0' => "non",
+                '1' => "oui"
+            ]
         ]);
 
     }
